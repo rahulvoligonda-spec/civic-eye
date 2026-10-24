@@ -1,0 +1,34 @@
+/* Civic Eye - admin panel styles (uses the colours from style.css) */
+.brand span,.adminbadge{font-family:'Instrument Sans',sans-serif;font-size:.8rem;font-weight:600;background:var(--signal);color:var(--ink);padding:3px 10px;border-radius:99px;margin-left:8px}
+.adminmain{max-width:1200px;margin:24px auto 40px;padding:0 20px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;border-top:5px solid var(--ink)}
+.stat b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;line-height:1.1}
+.stat span{color:var(--muted);font-size:.9rem}
+.stat.unassigned{border-top-color:var(--signal)}
+.stat.pending{border-top-color:var(--alert)}.stat.progress{border-top-color:#B7791F}.stat.resolved{border-top-color:var(--ok)}
+.filters{display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:14px;align-items:end}
+@media(max-width:800px){.filters{grid-template-columns:1fr 1fr}}
+.tablewrap{overflow-x:auto;margin-top:12px}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th{text-align:left;font-size:.85rem;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.93rem}
+td img{width:84px;height:84px;object-fit:cover;border-radius:8px;display:block}
+td .id{font-family:'Bricolage Grotesque',sans-serif;font-weight:800}
+td .small{color:var(--muted);font-size:.85rem}
+td a{color:var(--ink);font-weight:600}
+td select{padding:6px 8px;min-width:190px}
+td select.unset{border-color:var(--alert);background:#FDECEA}
+.newtag{background:var(--signal);color:var(--ink);font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:99px;margin-left:6px}
+tr.fresh{background:#FFF6D6}
+.del{background:none;border:1.5px solid var(--alert);color:var(--alert);font:inherit;font-weight:600;border-radius:8px;padding:6px 10px;cursor:pointer}
+.del:hover{background:var(--alert);color:#fff}
+
+/* login page */
+.loginpage{display:grid;place-items:center;min-height:100vh;background:var(--ink)}
+.loginbox{background:#fff;border-radius:14px;padding:32px;width:min(400px,92vw);margin:0}
+.loginbox h1{font-size:1.6rem;margin:8px 0 4px}
+.loginbox form{margin-top:16px}
+.brand.dark{color:var(--ink)}
+.back{margin-top:16px;text-align:center;font-size:.9rem}

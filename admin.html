@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin panel – Civic Eye</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">Civic Eye <span class="adminbadge">Admin panel</span></div>
+    <nav>
+      <a class="adminlink" href="/" target="_blank">View website</a>
+      <a class="adminlink" href="/admin/logout">Log out</a>
+    </nav>
+  </div>
+</header>
+
+<main class="adminmain">
+  <section class="cards" aria-label="Summary">
+    <div class="stat"><b id="aTotal">0</b><span>Total reports</span></div>
+    <div class="stat unassigned"><b id="aUnassigned">0</b><span>Not assigned yet</span></div>
+    <div class="stat pending"><b id="aPending">0</b><span>Pending</span></div>
+    <div class="stat progress"><b id="aProgress">0</b><span>In progress</span></div>
+    <div class="stat resolved"><b id="aResolved">0</b><span>Resolved</span></div>
+  </section>
+
+  <section class="panel">
+    <div class="filters">
+      <div><label for="fq">Search</label><input id="fq" placeholder="Report ID or address…"></div>
+      <div><label for="fdept">Department</label>
+        <select id="fdept"><option value="">All departments</option>
+          <option value="__none__">Not assigned yet</option>
+          {% for d in depts %}<option value="{{ d }}">{{ d }}</option>{% endfor %}
+        </select></div>
+      <div><label for="fstatus">Status</label>
+        <select id="fstatus"><option value="">All</option><option>Pending</option><option>In progress</option><option>Resolved</option></select></div>
+      <button class="btn" id="refresh" type="button">Refresh</button>
+    </div>
+    <div class="hint" id="live">Updates automatically every 10 seconds.</div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th>Photo</th><th>Report</th><th>Location</th><th>Send to department</th><th>Status</th><th></th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="empty" id="empty" style="display:none">No reports match.</div>
+  </section>
+</main>
+<script>const DEPTS = {{ depts|tojson }};</script>
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>

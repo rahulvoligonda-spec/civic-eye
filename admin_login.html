@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin login – Civic Eye</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body class="loginpage">
+  <main class="loginbox">
+    <div class="brand dark">Civic Eye <span>Admin</span></div>
+    <h1>Sign in</h1>
+    <p class="sub">Only BMC officers and project admins can open the admin panel.</p>
+    <form method="post" autocomplete="off">
+      <div><label for="username">Username</label><input id="username" name="username" required autofocus></div>
+      <div><label for="password">Password</label><input id="password" name="password" type="password" required></div>
+      {% if error %}<div class="err" role="alert">{{ error }}</div>{% endif %}
+      <button class="btn go" type="submit">Log in</button>
+    </form>
+    <p class="back"><a href="/">← Back to website</a></p>
+  </main>
+</body>
+</html>
